@@ -8,7 +8,7 @@ import os
 from pynput import keyboard
 
 # 保存先フォルダ作成（存在しない場合）
-output_dir = "Pictures2"
+output_dir = "Pictures4"
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
     print(f"Folder created: {output_dir}")
@@ -85,15 +85,15 @@ def set_both_dc_motors(speed=0, direction="stop"):
 def on_press(key):
     try:
         if key.char == 'j':  # 'j'キーでサーボを135°に設定
-            set_servo_angle(135)
+            set_servo_angle(125)
         elif key.char == 'k':  # 'k'キーでサーボを50°に設定
-            set_servo_angle(50)
+            set_servo_angle(60)
         elif key.char == 'r':  # 'r'キーでサーボを90°に戻す
             set_servo_angle(90)
         elif key.char == 'w':  # 'w'キーで前進
-            set_both_dc_motors(60, "forward")
+            set_both_dc_motors(40, "forward")
         elif key.char == 's':  # 's'キーで後退
-            set_both_dc_motors(60, "backward")
+            set_both_dc_motors(40, "backward")
         elif key.char == 'a':  # 'a'キーで左回転
             set_dc_motor(60, "forward", "A")
             set_dc_motor(60, "backward", "B")
